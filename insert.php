@@ -16,7 +16,7 @@ function getInfo($userid,$chat_room_id,$connect){
 	$stmt->execute();
     foreach($result as $row)
 	{
-		return $row['chatid'];
+	return $row['chatid'];
         return $row['chat_room_id'];
         return $row['userid'];
        
@@ -44,33 +44,33 @@ function getInfo($userid,$chat_room_id,$connect){
  
 
 
-// // Attempt insert query executio
+// Attempt insert query executio
 
-//     try{
+    try{
    
-//         // Create prepared statement
-//         $sql = "INSERT INTO chat (chatid, chat_room_id,userid,chat_msg,chat_date) VALUES (:chatid, :chat_room_id,:userid,:chat_msg,:chat_date)";
-//         $stmt = $pdo->prepare($sql);
+        // Create prepared statement
+        $sql = "INSERT INTO chat (chatid, chat_room_id,userid,chat_msg,chat_date) VALUES (:chatid, :chat_room_id,:userid,:chat_msg,:chat_date)";
+        $stmt = $pdo->prepare($sql);
         
      
-//         // Bind parameters to statement
-//         $stmt->bindParam(':chatid', $chatid, PDO::PARAM_INT);
-//         $stmt->bindParam(':chat_room_id', $chat_room_id,PDO::PARAM_STR);
-//         $stmt->bindParam(':userid',$userid,PDO::PARAM_INT);
-//         $stmt->bindParam(':chat_msg', $_REQUEST['chat_msg']);
-//         $stmt->bindParam(':chat_date',$chat_date, PDO::PARAM_STR);
+        // Bind parameters to statement
+        $stmt->bindParam(':chatid', $chatid, PDO::PARAM_INT);
+        $stmt->bindParam(':chat_room_id', $chat_room_id,PDO::PARAM_STR);
+        $stmt->bindParam(':userid',$userid,PDO::PARAM_INT);
+        $stmt->bindParam(':chat_msg', $_REQUEST['chat_msg']);
+        $stmt->bindParam(':chat_date',$chat_date, PDO::PARAM_STR);
         
      
-//         // Execute the prepared statement
-//         $stmt->execute();
-//         echo "Records inserted successfully.";
-//     } catch(PDOException $e){
-//         die("ERROR: Could not able to execute $sql. " . $e->getMessage());
-//     }
+        // Execute the prepared statement
+        $stmt->execute();
+        echo "Records inserted successfully.";
+    } catch(PDOException $e){
+        die("ERROR: Could not able to execute $sql. " . $e->getMessage());
+    }
 
 
 
  
-// // Close connection
-// unset($pdo);
+// Close connection
+unset($pdo);
 ?>
